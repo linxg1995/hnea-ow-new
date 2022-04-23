@@ -83,6 +83,43 @@ export default {
         background-color: rgba(255, 255, 255, 0.5);
     }
 }
+// 打包后Navigation的样式会丢失，手动复写一下
+::v-deep .swiper-button-prev,
+::v-deep .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -0.5rem;
+    cursor: pointer;
+    z-index: 10;
+
+    &::after {
+        font-family: swiper-icons;
+        text-transform: none !important;
+        letter-spacing: 0;
+        font-variant: initial;
+        line-height: 1;
+    }
+}
+::v-deep .swiper-button-prev {
+    right: auto;
+    left: 10px;
+
+    &::after {
+        content: "prev";
+    }
+}
+::v-deep .swiper-button-next {
+    right: 10px;
+    left: auto;
+
+    &::after {
+        content: "next";
+    }
+}
 
 @media screen and (max-width: 639.98px) {
     .swiper-button-prev,
