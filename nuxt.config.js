@@ -24,7 +24,7 @@ export default {
     css: [
         '~/assets/css/normalize.css',
         '~/assets/css/tailwind.css',
-        'swiper/css/swiper.css'
+        'swiper/swiper.scss'
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
