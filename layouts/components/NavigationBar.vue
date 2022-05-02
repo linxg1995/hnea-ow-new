@@ -3,7 +3,7 @@
  * @Author: LXG
  * @Date: 2022-04-20
  * @LastEditors: LXG
- * @LastEditTime: 2022-04-22
+ * @LastEditTime: 2022-04-24
 -->
 <template>
     <div class="navigation-bar">
@@ -42,7 +42,7 @@ export default {
         return {
             links: [
                 { to: '/', name: '首页' },
-                { to: '/matchReview', name: '活动回顾' },
+                { to: '/match_review', name: '活动回顾' },
                 { to: '/certificate', name: '三员证' },
                 { to: '/professional', name: '职业鉴定' },
                 { to: '/education', name: '电竞教育' },
