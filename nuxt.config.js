@@ -24,12 +24,14 @@ export default {
     css: [
         '~/assets/css/normalize.css',
         '~/assets/css/tailwind.css',
-        'swiper/swiper.scss'
+        'swiper/swiper.scss',
+        'element-ui/lib/theme-chalk/index.css'
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        { src: '~/plugins/swiper.js', ssr: false }
+        { src: '~/plugins/swiper.js', ssr: false },
+        { src: '~/plugins/element-ui.js', ssr: true }
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -57,5 +59,6 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
+        transpile: [/^element-ui/]
     }
 }

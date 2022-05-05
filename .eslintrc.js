@@ -17,7 +17,9 @@ module.exports = {
     // add your custom rules here
     rules: {
         'comma-dangle': 'off',
-        indent: ['error', 4],
+        curly: 'warn',
+        indent: 'off',
+        'no-trailing-spaces': 'warn',
         'prefer-const': 'off',
         quotes: 'off',
         semi: 'off',
