@@ -1,4 +1,8 @@
 export default {
+    server: {
+        port: 3000, // 默认：3000
+        host: '0.0.0.0' // 默认：localhost，不能使用 localhost 也就是 127.0.0.1（会使得容器无法暴露服务到宿主机）
+    },
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
         title: '海南省电子竞技运动协会',
