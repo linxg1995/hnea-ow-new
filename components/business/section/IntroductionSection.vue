@@ -1,57 +1,21 @@
 <!--
- * @Description: 板块 省队介绍
+ * @Description: 版块 协会简介
  * @Author: LXG
- * @Date: 2021-04-06
- * @LastEditTime: 2022-05-05
+ * @Date: 2021-03-26
+ * @LastEditTime: 2022-05-08
 -->
 <template>
-    <div
-        class="section-introduction"
-        :style="{'background-image':`url(${require('~/assets/image/section/sectionBg.png')})`}"
-    >
+    <section class="section-introduction">
         <div class="sm:container mx-auto px-4 section-inner">
             <div class="my-10 section-title">
-                <img src="~/assets/image/section/section_sdjs.png" />
+                <img src="@/assets/image/section/section_xhjj.png">
             </div>
             <div class="my-10 section-content">
-                <div
-                    ref="swiperOuter"
-                    class="swiper__outer"
-                >
-                    <div
-                        ref="swiperInner"
-                        class="content-img__inner"
-                        :class="{
-                            'swiper-scroll-left':swipeScrollType==1,
-                            'swiper-scroll-right':swipeScrollType==2,
-                        }"
-                        :style="{'left':swipeLeft+'px'}"
-                    >
-                        <img
-                            ref="swipeFirstItem"
-                            class="swipe-item"
-                            src="~/assets/image/team/ENI2180.jpg"
-                        />
-                        <img
-                            class="swipe-item"
-                            src="~/assets/image/team/FIN3097.jpg"
-                        />
-                        <img
-                            class="swipe-item"
-                            src="~/assets/image/team/DENI9594.jpg"
-                        />
-                        <img
-                            ref="swipeLastItem"
-                            class="swipe-item"
-                            src="~/assets/image/team/20201109123408.jpg"
-                        />
-                    </div>
-                </div>
-                <p>海南省电子竞技代表队2019年底成立，这是国内成立的第一支省级专业电竞队；</p>
-                <p>海南省队由海南体育职业技术学院和海南省电子竞技协会共同组建。</p>
+                <img src="~/assets/image/logo@2x.png">
+                <p>{{text}}</p>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>
@@ -59,68 +23,18 @@ export default {
     name: 'IntroductionSection',
     data() {
         return {
-            swipeScrollType: 0, // 0:不滚动, 1:左滚动, 2:右滚动
-            swipeLeft: 0,
+            text: `
+                海南省电子竞技运动协会（Hainan E-sports Association ，简称HNEA）成立于2015年1月，经海南省民政厅批准成立，是由电子竞技运动爱好者及企事业单位自愿结成的行业性的全省的非营利性的社会组织，隶属于“海南省旅游和文化广电体育厅”管理的唯一全省性电子竞技运动行业协会，协会旨在团结电子竞技工作者、教练员、裁判员、运动员以及愿为海南省电子竞技运动发展出力的社会各界人士，广泛开展电子竞技活动，提高海南省电子竞技运动水平，加强本协会各会员之间的联系与交流，增进与各地区电子竞技协会、俱乐部和运动员之间的友谊，促进电子竞技运动在海南省健康有序发展。
+                `.replace(/(\r|\n)/g, '')
         }
-    },
-    methods: {
-        swipeScroll() {
-            switch (this.swipeScrollType) {
-                case 1:
-                    this.swipeLeft++
-                    window.requestAnimationFrame(() => {
-                        this.swipeScroll()
-                    })
-                    break;
-                case 2:
-                    this.swipeLeft--
-                    window.requestAnimationFrame(() => {
-                        this.swipeScroll()
-                    })
-                    break;
-                default:
-                    break;
-            }
-        }
-    },
-    mounted() {
-        const _this = this
-        const swipeFirstItem = this.$refs.swipeFirstItem
-        const swipeLastItem = this.$refs.swipeLastItem
-        let observer = new IntersectionObserver(function (entries) {
-            const entry = entries[0]
-            // console.log(entry)
-            if (entry.isIntersecting) {
-                switch (_this.swipeScrollType) {
-                    case 1:
-                        observer.unobserve(swipeFirstItem)
-                        _this.swipeScrollType = 2
-                        observer.observe(swipeLastItem)
-                        break;
-                    case 2:
-                        observer.unobserve(swipeLastItem)
-                        _this.swipeScrollType = 1
-                        observer.observe(swipeFirstItem)
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }, {
-            root: _this.$refs.swiperOuter,
-            threshold: 1
-        })
-        observer.observe(swipeLastItem)
-
-        this.swipeScrollType = 2
-        this.swipeScroll()
     }
 }
 </script>
 
 <style lang="scss" scoped>
 .section-introduction {
-    background-size: 100% 100%;
+    background-color: rgba(#368bfa, 0.04);
+    overflow: hidden;
 }
 .section-inner {
     overflow: hidden;
@@ -130,39 +44,43 @@ export default {
 
     img {
         display: inline-block;
-        width: 28rem;
+        width: 34rem;
         max-width: 90vw;
     }
 }
 .section-content {
-    text-align: center;
-    line-height: 1.5;
-    font-size: 1.2rem;
-
-    p + p {
-        margin-top: 1rem;
+    img {
+        width: 16rem;
+        max-width: 50vw;
+        margin-right: 2rem;
     }
-}
-.swiper__outer {
-    margin-bottom: 3rem;
-    overflow-x: hidden;
-}
-.content-img__inner {
-    position: relative;
-    left: 0;
-    width: max-content;
-    font-size: 0;
-    white-space: nowrap;
-
-    .swipe-item {
-        display: inline-block;
-        height: 20rem;
+    p {
+        line-height: 2;
+        text-indent: 2rem;
+        color: #333333;
     }
 }
 
-@media screen and (max-width: 1023.98px) {
-    .swipe-item {
-        height: 18rem;
+@media screen and (min-width: 768px) {
+    .section-content {
+        display: -webkit-flex;
+        display: flex;
+        align-items: center;
+
+        p {
+            flex: 1;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .section-content {
+        img {
+            display: block;
+            margin-right: auto;
+            margin-bottom: 1rem;
+            margin-left: auto;
+        }
     }
 }
 </style>
