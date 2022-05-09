@@ -2,7 +2,7 @@
  * @Description: 板块 所获荣誉
  * @Author: LXG
  * @Date: 2021-04-06
- * @LastEditTime: 2022-05-05
+ * @LastEditTime: 2022-05-09
 -->
 <template>
     <div class="section-honor">
@@ -22,8 +22,8 @@
                             class="grid-item"
                         >
                             <img
+                                v-lazy-src="{src:require(`~/assets/image/honor/`+item.img+'.jpg')}"
                                 class="rounded-lg"
-                                :src="item.img?require(`~/assets/image/honor/`+item.img+'.jpg'):''"
                             />
                             <p class="py-1 px-3">
                                 {{item.label}}
@@ -43,10 +43,12 @@
                             class="grid-item"
                         >
                             <img
+                                v-lazy-src="{src:require(`~/assets/image/honor/`+item.img+'.jpg')}"
                                 class="rounded-lg"
-                                :src="require(`~/assets/image/honor/`+item.img+'.jpg')"
                             />
-                            <p class="py-1 px-3">{{item.label}}</p>
+                            <p class="py-1 px-3">
+                                {{item.label}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -110,7 +112,7 @@ export default {
     display: -moz-grid;
     display: -ms-grid;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 20rem);
+    grid-template-columns: repeat(auto-fill, 19rem);
 }
 .grid-item {
     position: relative;
@@ -141,6 +143,7 @@ export default {
     }
     .content-left {
         float: left;
+        margin-right: 0.5rem;
     }
     .content-right {
         justify-content: space-evenly;

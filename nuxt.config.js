@@ -30,8 +30,9 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        { src: '~/plugins/swiper.js', ssr: false },
-        { src: '~/plugins/element-ui.js', ssr: true }
+        { src: '~/plugins/element-ui.js', ssr: true },
+        { src: '~/plugins/img-lazy-loader.js', ssr: false },
+        { src: '~/plugins/swiper.js', ssr: false }
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
