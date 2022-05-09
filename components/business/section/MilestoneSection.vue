@@ -2,7 +2,7 @@
  * @Description: 板块 里程碑
  * @Author: LXG
  * @Date: 2021-04-06
- * @LastEditTime: 2022-05-05
+ * @LastEditTime: 2022-05-09
 -->
 <template>
     <div class="section-milestone">
@@ -17,8 +17,8 @@
                 >
                     <div class="milestone__inner">
                         <img
+                            v-lazy-src="{src:item.img0}"
                             class="rounded-lg"
-                            :src="item.img0"
                         />
                         <div class="p-4 milestone__inner__right">
                             <h3>

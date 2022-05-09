@@ -2,7 +2,7 @@
  * @Description: 版块 教学特色
  * @Author: LXG
  * @Date: 2021-04-24
- * @LastEditTime: 2022-05-02
+ * @LastEditTime: 2022-05-09
 -->
 <template>
     <section class="section-features">
@@ -12,7 +12,7 @@
         >
             <div class="sm:container mx-auto px-4 section-inner">
                 <div class="my-10 section-title">
-                    <img src="@/assets/image/section/section_features.png">
+                    <img src="~/assets/image/section/section_features.png">
                 </div>
                 <div class="my-10 section-content">
                     <div
@@ -42,8 +42,8 @@
                     class="img-item"
                 >
                     <img
+                        v-lazy-src="{src:item.img}"
                         class="rounded-lg"
-                        :src="item.img"
                     />
                     <p>{{item.label}}</p>
                 </div>
