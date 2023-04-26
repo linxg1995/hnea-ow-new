@@ -1,22 +1,24 @@
 <template>
     <div>
-        <div v-swiper="swiperOptions">
-            <div class="swiper-wrapper">
-                <div
-                    v-for="img in imgs"
-                    :key="img"
-                    class="swiper-slide"
-                >
-                    <img
-                        :src="img"
-                        :alt="img"
-                        referrer="no-referrer"
-                        width="100%"
+        <div class="sm:container px-4 mx-auto">
+            <div v-swiper="swiperOptions">
+                <div class="swiper-wrapper">
+                    <div
+                        v-for="img in imgs"
+                        :key="img"
+                        class="swiper-slide"
                     >
+                        <img
+                            :src="img"
+                            :alt="img"
+                            referrer="no-referrer"
+                            width="100%"
+                        >
+                    </div>
                 </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
         </div>
         <!-- 协会简介 -->
         <IntroductionSection></IntroductionSection>
@@ -58,9 +60,12 @@ export default {
                 },
             },
             imgs: [
-                'https://wx1.sinaimg.cn/large/96bea5begy1gozhgo3xdij21hc0o4kd3.jpg',
-                'https://wx4.sinaimg.cn/large/96bea5begy1gozhgsetggj21hc0o4wxl.jpg',
-                'https://wx4.sinaimg.cn/large/96bea5begy1gozhgvl5llj21hc0o4x0y.jpg',
+                require('~/assets/image/banner/banner0.jpg'),
+                require('~/assets/image/banner/banner1.jpg'),
+                require('~/assets/image/banner/banner2.jpg'),
+                // 'https://wx1.sinaimg.cn/large/96bea5begy1gozhgo3xdij21hc0o4kd3.jpg',
+                // 'https://wx4.sinaimg.cn/large/96bea5begy1gozhgsetggj21hc0o4wxl.jpg',
+                // 'https://wx4.sinaimg.cn/large/96bea5begy1gozhgvl5llj21hc0o4x0y.jpg',
             ]
         }
     },
